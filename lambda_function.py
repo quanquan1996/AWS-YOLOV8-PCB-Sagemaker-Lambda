@@ -11,7 +11,8 @@ import io
 
 # 模型路径 - 现在直接从Docker镜像中读取
 MODEL_LOCAL_PATH = os.path.join(os.environ['LAMBDA_TASK_ROOT'], 'models/best.pt')
-
+# 加载模型 提前加载
+model = YOLO(MODEL_LOCAL_PATH)
 # 缺陷名称映射
 defect_names_map = {
     0: "Missing hole",
@@ -29,9 +30,6 @@ def process_image(image_data):
 
     # 转换为PIL图像
     img = Image.open(io.BytesIO(image_bytes))
-
-    # 加载模型
-    model = YOLO(MODEL_LOCAL_PATH)
 
     # 预测
     results = model.predict(img)
