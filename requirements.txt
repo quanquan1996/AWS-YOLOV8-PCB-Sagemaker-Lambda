@@ -1,5 +1,5 @@
-opencv-python-headless==4.8.1.78
-numpy==1.26.0
-ultralytics==8.0.196
-Pillow==10.0.1
-boto3==1.28.57
+opencv-python-headless
+numpy
+ultralytics
+Pillow
+boto3
