@@ -3,9 +3,7 @@ import base64
 import tempfile
 import os
 import cv2
-import numpy as np
 from ultralytics import YOLO
-import boto3
 from PIL import Image
 import io
 
@@ -22,6 +20,7 @@ defect_names_map = {
     4: "Spur",
     5: "Supurious copper"
 }
+
 
 def process_image(image_data):
     """处理图像并进行缺陷检测"""
@@ -73,6 +72,7 @@ def process_image(image_data):
         "defect_count": len(defects),
         "defect_summary": defect_summary
     }
+
 
 def process_video(video_data):
     """处理视频并进行缺陷检测"""
@@ -171,6 +171,7 @@ def process_video(video_data):
         "total_frames": frame_count,
         "fps": fps
     }
+
 
 def lambda_handler(event, context):
     """Lambda处理函数"""

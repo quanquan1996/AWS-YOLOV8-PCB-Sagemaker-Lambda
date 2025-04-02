@@ -1,5 +1,3 @@
 opencv-python-headless
-numpy
 ultralytics
 Pillow
-boto3
