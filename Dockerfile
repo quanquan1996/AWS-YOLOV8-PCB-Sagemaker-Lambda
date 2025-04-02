@@ -1,9 +1,9 @@
 FROM public.ecr.aws/lambda/python:3.12
 
 # 安装系统依赖（OpenCV可能需要的一些系统库）
-RUN yum update -y && \
-    yum install -y mesa-libGL libglib2.0-0 libgl1-mesa-glx && \
-    yum clean all
+RUN dnf update -y && \
+    dnf install -y mesa-libGL mesa-libGLU libglvnd-glx && \
+    dnf clean all
 
 # 复制requirements.txt
 COPY requirements.txt ${LAMBDA_TASK_ROOT}
