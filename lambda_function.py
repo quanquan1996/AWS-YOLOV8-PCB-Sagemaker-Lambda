@@ -182,9 +182,8 @@ def lambda_handler(event, context):
         print(f"Model exists: {os.path.exists(MODEL_LOCAL_PATH)}")
 
         # 解析请求体
-        body = json.loads(event['body'])
-        file_type = body.get('file_type')
-        file_data = body.get('file_data')
+        file_type = event.get('file_type')
+        file_data = event.get('file_data')
 
         if not file_data:
             return {
